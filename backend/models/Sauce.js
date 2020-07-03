@@ -1,3 +1,4 @@
+//Schéma de données strict des sauces
 const mongoose = require("mongoose");
 
 const sauceSchema = mongoose.Schema({
@@ -14,4 +15,4 @@ const sauceSchema = mongoose.Schema({
   usersDisliked: { type: [String], required: false },
 });
 
-module.exports = mongoose.model("Sauce", sauceSchema);
+module.exports = mongoose.model("Sauce", sauceSchema); //exportation su schéma en tant que modèle pour le rendre disponible sur l'application

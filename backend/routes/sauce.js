@@ -1,9 +1,9 @@
-const express = require("express");
-const router = express.Router();
+const express = require("express"); //importation d' Express
+const router = express.Router(); //Importation du router Express
 
-const sauceCtrl = require("../controllers/sauce");
-const auth = require("../middleware/auth");
-const multer = require("../middleware/multer-config");
+const sauceCtrl = require("../controllers/sauce"); //Importation du controleur de sauce
+const auth = require("../middleware/auth"); //Importation du middleware d'authentification
+const multer = require("../middleware/multer-config"); //Importation de multer
 
 router.post("/", auth, multer, sauceCtrl.createSauce);
 router.post("/:id/like", auth, multer, sauceCtrl.likeSauce);

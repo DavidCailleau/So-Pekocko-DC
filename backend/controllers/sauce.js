@@ -1,8 +1,8 @@
-const Sauce = require("../models/Sauce");
-const fs = require("fs");
+const Sauce = require("../models/Sauce"); //Utilise le modèle de sauce
+const fs = require("fs"); //Package file system qui permet de modifier ou supprimer des fichiers
 
 exports.createSauce = (req, res, next) => {
-  const sauceObject = JSON.parse(req.body.sauce);
+  const sauceObject = JSON.parse(req.body.sauce); 
   const sauce = new Sauce({
     ...sauceObject,
     imageUrl: `${req.protocol}://${req.get("host")}/images/${
