@@ -25,7 +25,7 @@ schema
 exports.signup = (req, res, next) => {
   if (!schema.validate(req.body.password)) {
     //Test du format du mot de passe
-    throw { error: "Merci de bien vouloir entrer un mot de passe valide !" };
+    return res.status(400).json({ error: "Merci de bien vouloir entrer un mot de passe valide !" });
   } else if (schema.validate(req.body.password)) {
     bcrypt
       .hash(req.body.password, 10) //Salage du mot de passe à 10 reprises
@@ -48,7 +48,7 @@ exports.login = (req, res, next) => {
   User.findOne({ email: req.body.email })
     .then((user) => {
       if (!user) {
-        return res.status(401).json({ error: "Utilisateur non trouvé" });
+        return res.status(404).json({ error: "Utilisateur non trouvé" });
       }
       bcrypt
         .compare(req.body.password, user.password) //compare le password soumis avec le password de la base de données

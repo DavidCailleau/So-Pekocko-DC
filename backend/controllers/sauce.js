@@ -39,7 +39,7 @@ exports.updateSauce = (req, res, next) => {
             { ...sauceObject, _id: req.params.id }
           )
             .then(() => {
-              res.status(201).json({ message: "Sauce mise à jour!" });
+              res.status(200).json({ message: "Sauce mise à jour!" });
             })
             .catch((error) => {
               res.status(400).json({ error: error });
@@ -100,7 +100,7 @@ exports.likeSauce = (req, res, next) => {
               }
             )
               .then(() => {
-                res.status(201).json({ message: "Votre avis a été supprimé" });
+                res.status(200).json({ message: "Votre avis a été supprimé" });
               })
               .catch((error) => {
                 res.status(400).json({ error: error });
@@ -116,7 +116,7 @@ exports.likeSauce = (req, res, next) => {
               }
             )
               .then(() => {
-                res.status(201).json({ message: "Votre avis a été supprimé" });
+                res.status(200).json({ message: "Votre avis a été supprimé" });
               })
               .catch((error) => {
                 res.status(400).json({ error: error });
@@ -141,7 +141,7 @@ exports.likeSauce = (req, res, next) => {
       )
         .then(() => {
           res
-            .status(201)
+            .status(200)
             .json({ message: "Merci ! Votre avis a été pris en compte" });
         })
         .catch((error) => {
@@ -161,7 +161,7 @@ exports.likeSauce = (req, res, next) => {
       )
         .then(() => {
           res
-            .status(201)
+            .status(200)
             .json({ message: "Merci ! Votre avis a été pris en compte!" });
         })
         .catch((error) => {
